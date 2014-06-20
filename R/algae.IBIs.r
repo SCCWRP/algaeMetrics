@@ -61,8 +61,5 @@ algae.IBIs <- function(data, metadata = NULL){
   metrics$SoftAlgaeEntityCountFlag <- ifelse(is.na(metrics$EntityCount), "Data missing", 
                                             ifelse(metrics$EntityCount < 225,"Inadequate","Adequate"))
   
-  Reduce(merge, list(report, metrics[, c("SampleID", "DiatomSamplePresent",
-                                         "SoftAlgaeSampleTypesPresent",
-                                         "QualPresent", "DiatomCountFlag",
-                                         "SoftAlgaeEntityCountFlag")], processed$purged))
+  Reduce(merge, list(report, metrics, processed$purged))
 }
