@@ -11,13 +11,15 @@ taxonInfo(data, algaeMetaData = NULL)
 \item{algaeMetaData}{A data frame contain taxonomic lookup data. If null (default), uses metadata distributed with this package}
 }
 \value{
-A list containing the cleaned data, and a report of the number rows purged per sample
+A list containing the cleaned data, a report of the number rows purged per sample, a table listing all taxa in all samples,
+and whether it was present in the metadata.
 }
 \description{
 Checks that all FinalIDs are present in metadata. If not, the row is purged. Remainder are then merged together with metadata.
 }
 \examples{
 data(algaeSamples)
-taxonInfo(validator(algaeSamples))
+tinfo <- taxonInfo(validator(algaeSamples))
+tinfo$taxaSummary
 }
 

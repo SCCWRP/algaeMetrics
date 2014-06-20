@@ -8,7 +8,7 @@
 #' @examples
 #' data(algaeSamples)
 #' preparedData <- taxonInfo(validator(algaeSamples))
-#' alg.metrics(preparedData)
+#' alg.metrics(preparedData$cleanData)
 
 
 alg.metrics <- function(data){

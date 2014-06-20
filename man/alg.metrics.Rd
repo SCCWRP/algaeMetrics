@@ -11,6 +11,6 @@ Returns all metrics for soft algae and diatoms, along with relevant QC metrics
 \examples{
 data(algaeSamples)
 preparedData <- taxonInfo(validator(algaeSamples))
-alg.metrics(preparedData)
+alg.metrics(preparedData$cleanData)
 }
 
