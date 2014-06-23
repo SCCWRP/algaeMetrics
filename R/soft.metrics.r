@@ -44,7 +44,7 @@ soft.metrics <- function(data){
     metrics <- cbind(x1, x2, x3, x5, x6, x7, x8)
     
     # Rest of the metrics
-    ZHR <- x[, (!is.na(x$Zygnemataceae) | !is.na(x$Heterocystous) | !is.na(x$TaxonomicGroup))]
+    ZHR <- x[(!is.na(x$Zygnemataceae) | !is.na(x$Heterocystous) | !is.na(x$TaxonomicGroup)), ]
 
     ZHRprop <- sum(ZHR$propBiovol, na.rm=T)
     ZHRpresent <- ZHR[ZHR$Zygnemataceae=="Yes" | ZHR$Heterocystous =="Yes" | ZHR$TaxonomicGroup=="RD",]
