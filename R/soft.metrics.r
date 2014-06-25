@@ -63,6 +63,7 @@ soft.metrics <- function(data){
                                                       x$Genus =="Stigeoclonium"], na.rm=TRUE)
     metrics$propGreenCRUS.RAW <-ifelse(metrics$totalBiovolGreen.RAW == 0, 0,
                                        metrics$totalBiovolCRUS.RAW/metrics$totalBiovolGreen.RAW)
+
     biovolpresent <- x[!is.na(x$TaxonomicGroup) & !is.na(x$Genus), ]
     metrics$totalBiovolCRUS.QC.propBiovolWithTraits <- sum(biovolpresent$propBiovol, na.rm=TRUE)
     metrics$totalBiovolCRUS.QC.propTaxaWithTraits <- nrow(biovolpresent)/nrow(x)

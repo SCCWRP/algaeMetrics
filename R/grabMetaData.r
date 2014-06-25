@@ -22,12 +22,14 @@ grabMetaData <- function(){
   OrganismLookUp.Genus, OrganismLookUp.TaxonomicLevelCode, OrganismLookUp.TaxonomicLevelName FROM BARM_AlgaeAttributes
   INNER JOIN OrganismLookUp ON BARM_AlgaeAttributes.FinalID = OrganismLookUp.FinalID;"
   
-  connection <- odbcDriverConnect("DRIVER={SQL Native Client};
-                                  SERVER=205.155.75.83,2866;UID=Read_Only;
-                                  DATABASE=DW_Full;Pwd=Read_Only")
+  connection <- suppressWarnings(try(odbcDriverConnect("DRIVER={SQL Native Client};
+                      SERVER=205.155.75.83,2866;UID=Read_Only;
+                      DATABASE=DW_Full;Pwd=Read_Only")))
+  if(connection == -1)stop("Failed to connect to MLML. Check to make sure you have SQL Native Client installed")
   on.exit(odbcClose(connection))
   
   result <- sqlQuery(connection, query)
+  result[result == ""] <- NA
   result
 }
 
