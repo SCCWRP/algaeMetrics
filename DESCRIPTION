@@ -10,3 +10,5 @@ License: MIT
 Depends:
     plyr,
     stringr
+RoxygenNote: 6.1.0
+Encoding: UTF-8
