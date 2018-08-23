@@ -1,5 +1,4 @@
 library(plyr)
-library(stringr)
 
 lapply(list.files("r", full.names=TRUE), source)
 

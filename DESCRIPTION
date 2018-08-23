@@ -8,7 +8,6 @@ Maintainer: <marke@sccwrp.org>
 Description: Functions for reproducing SWAMP algae metrics and IBIs
 License: MIT
 Depends:
-    plyr,
-    stringr
+    plyr
 RoxygenNote: 6.1.0
 Encoding: UTF-8

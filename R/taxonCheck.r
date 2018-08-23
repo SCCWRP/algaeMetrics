@@ -21,8 +21,8 @@ taxonInfo <- function(data, algaeMetaData = NULL){
   if(is.null(algaeMetaData))
     algaeMetaData <- read.csv(system.file("extdata", "algaeMetaData3.csv", package="algaeMetrics"),
                               stringsAsFactors=FALSE)
-  
-  data$FinalID <- str_trim(data$FinalID) 
+
+  data$FinalID <- gsub("^\\s+|\\s+$", "", data$FinalID)
   missing.taxa <- setdiff(data$FinalID, algaeMetaData$FinalID)
   
   if(is.null(data$SampleID))
